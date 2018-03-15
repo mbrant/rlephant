@@ -1,0 +1,48 @@
+{
+  "name": "developer_environment",
+  "version": "1.0.0",
+  "description": "start-up environment",
+  "scripts": {
+    "prestart": "babel-node build/startMessage.js",
+    "start": "npm-run-all --parallel security-check open:src",
+    "open:src": "babel-node build/server.js",
+    "security-check": "nsp check",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbrant/devEnv.git"
+  },
+  "author": "Mikhail Brantveyn",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mbrant/devEnv/issues"
+  },
+  "homepage": "https://github.com/mbrant/devEnv#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "bootstrap": "^4.0.0",
+    "chalk": "^2.3.2",
+    "css-loader": "^0.28.10",
+    "jquery": "^3.3.1",
+    "localtunnel": "^1.8.3",
+    "npm-run-all": "^4.1.2",
+    "nsp": "^3.2.1",
+    "open": "0.0.5",
+    "popper.js": "^1.14.1",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.1.1",
+    "webpack-dev-middleware": "^3.0.1"
+  }
+}
