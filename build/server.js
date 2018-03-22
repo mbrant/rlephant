@@ -4,7 +4,6 @@ import open from 'open'
 import Webpack from 'webpack'
 import config from '../webpack.config.dev'
 
-const port = 3000
 const app = express()
 const compiler = Webpack(config)
 
@@ -22,10 +21,4 @@ app.get('/', function(req, res){
 
 // express: listen on port 3000, if no errors open browser/launch dev server
 
-app.listen(port, function(err){
-    if(err){
-        console.log(err)
-    } else {
-        open('http://localhost:' + port)
-    }
-})
+app.listen(8080)
