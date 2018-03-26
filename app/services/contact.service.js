@@ -10,11 +10,8 @@ module.exports = {
 }
 
 function _test(){
-    console.log('Mongo Function firing')
-    const testDoc = {
-        test: "successful back end test"
-    }
-    return conn.db().collection('contact').insertOne(testDoc)
+
+    return conn.db().collection('contact').insertOne({_id: new ObjectId()})
     .then(result => result.insertedId.toString())
     .catch(err => {
         console.warn(err)

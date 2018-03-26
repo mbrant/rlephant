@@ -1,7 +1,93 @@
 $bg-url: url('../public/img/background3.jpg');
-$bg-color: blue;
+$bg-color: #333;
+$font-color: #fff;
+$primary-color: #008ed6;
+$dark-overlay: rgba(0,0,0,0.5);
+
+body {
+    background: $bg-color;
+    color: $font-color;
+}
+
+ #home-section {
+    min-height: 700px;
+    background: $bg-url no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    .dark-overlay{
+        background-color:$dark-overlay;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 700px;
+    }
+
+    .home-inner{
+        padding-top: 150px;
+    }
+
+    .card-form {
+        opacity: 0.8;
+    }
+}
+
+.navbar {
+    border-bottom: $primary-color 3px solid;
+    opacity: 0.8;
+}
+
+.bg-black{
+    background: #000;
+    color: #fff;
+}
+
+#spacer1{
+    height: 70px;
+    background: $bg-color;
+    border-bottom: $primary-color 3px solid;
+
+}
+
+#spacer2{
+    padding-top: 150px;
+    height: 150px;
+}
 
 
-body{
-    background: $bg-url;
+#about-header{
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .port-item{
+        width:30%;
+        .fa{
+            font-size:2em;
+        }
+    }
+
+    .port-item:hover{
+        opacity:0.8;
+        cursor: pointer;
+    }
+}
+
+#resume {
+    .card-title{
+        color: $bg-color;
+        text-align: center;
+    }
+
+}
+
+@media(min-width:1199px){
+    .port-item{
+        padding:3em !important;
+    }
 }

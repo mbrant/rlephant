@@ -6,8 +6,8 @@ module.exports = {
     test: _test
 }
 
-function _test(){
-    return axios.get('/api/contact')
+function _test(data){
+    return axios.post('/api/contact', data)
     .then(res => {
         console.log(res)
         return res

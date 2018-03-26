@@ -12,7 +12,8 @@ module.exports = apiPrefix => {
 }
 
 function send(req, res){
-    contactService.test()
+    console.log(req.body)
+    contactService.test(req.body)
     .then(id => {
         console.log("it worked!!!! " + id)
         res
