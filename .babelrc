@@ -2,5 +2,11 @@
     "presets": [
         "latest", 
         "react"
+    ],
+    "plugins": [
+        "syntax-dynamic-import",
+        ["import-inspector", {
+            "serverSideRequirePath": true
+        }]
     ]
 }

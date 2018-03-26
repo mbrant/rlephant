@@ -1,49 +1,75 @@
 {
-  "name": "developer_environment",
+  "name": "rlephant",
   "version": "1.0.0",
-  "description": "start-up environment",
+  "description": "rlephant site",
   "scripts": {
-    "prestart": "babel-node build/startMessage.js",
     "start": "npm-run-all --parallel security-check open:src",
-    "open:src": "screen babel-node build/server.js",
+    "open:src": "babel-node tools/srcServer.js",
     "security-check": "nsp check",
-    "localtunnel": "lt --port 3000",
-    "share": "npm-run-all --parallel open:src localtunnel"
+    "localtunnel": "lt --port 8080",
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "clean-dist": "run-s remove-dist make-dir",
+    "make-dir": "mkdir dist",
+    "remove-dist": "node_modules/.bin/rimraf ./dist",
+    "build:html": "babel-node tools/buildHtml.js",
+    "prebuild": "npm-run-all clean-dist build:html",
+    "build": "babel-node tools/build.js",
+    "postbuild": "babel-node tools/distServer.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mbrant/devEnv.git"
+    "url": "git+https://github.com/mbrant/rlephant.git"
   },
   "author": "Mikhail Brantveyn",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/mbrant/devEnv/issues"
+    "url": "https://github.com/mbrant/rlephant/issues"
   },
-  "homepage": "https://github.com/mbrant/devEnv#readme",
+  "homepage": "https://github.com/mbrant/rlephant#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "isotope-layout": "^3.0.5",
+    "mongodb": "^3.0.4",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "tether": "^1.4.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-import-inspector": "^2.0.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "bootstrap": "^4.0.0",
-    "chalk": "^2.3.2",
+    "cheerio": "^1.0.0-rc.2",
+    "colors": "^1.2.1",
     "css-loader": "^0.28.10",
+    "file-loader": "^1.1.11",
+    "font-awesome": "^4.7.0",
+    "import-inspector": "^2.0.0",
     "jquery": "^3.3.1",
     "localtunnel": "^1.8.3",
+    "mini-css-extract-plugin": "^0.2.0",
+    "node-sass": "^4.8.3",
     "npm-run-all": "^4.1.2",
     "nsp": "^3.2.1",
     "open": "0.0.5",
     "popper.js": "^1.14.1",
+    "react-helmet": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "url-loader": "^1.0.1",
     "webpack": "^4.1.1",
-    "webpack-dev-middleware": "^3.0.1"
+    "webpack-dev-middleware": "^3.0.1",
+    "webpack-hot-middleware": "^2.21.2"
   }
 }
